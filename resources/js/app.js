@@ -31,33 +31,39 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app'
 });
-$(document).ready(function(){
-    $('#alert').hide();
-});
+
+// variable para ver si fue presionado el boton de cerrar
+
+$('#alert').hide();
+
 //delegacion de eventos
 document.getElementById('table-select').addEventListener('click', (e)=>{
     if(e.target.nodeName === 'A'){
+
         
         if (!confirm('¿Esta seguro de eliminar?')) {
             return false;
         }
         var row = $(e.target).parents('tr');
         var form = $(e.target).parents('form');
-        var url = form.attr('action');
         var formId = form.attr('id');
-
-        $('#alert').show();
+        
         
         //axios delete
-        axios.delete(`/eliminar/`+formId).then((response) => {
-
+        axios.delete('/eliminar/'+formId).then((response) => {
+            
             row.fadeOut();
+            $('#alert').fadeIn();
             $('#products_total').html(response.data.total);
-            $('#alert').html(response.data.message);
+            $('#alert-info').html(response.data.message);
+            $('#btn-destroy').click(function(){
+                $('#alert').fadeOut();
+            });
 
         }).catch(function (error) {
             console.log(error);
         });
-        
     }
-})
+});
+
+

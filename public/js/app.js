@@ -48942,10 +48942,9 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 
 var app = new Vue({
   el: '#app'
-});
-$(document).ready(function () {
-  $('#alert').hide();
-}); //delegacion de eventos
+}); // variable para ver si fue presionado el boton de cerrar
+
+$('#alert').hide(); //delegacion de eventos
 
 document.getElementById('table-select').addEventListener('click', function (e) {
   if (e.target.nodeName === 'A') {
@@ -48955,14 +48954,16 @@ document.getElementById('table-select').addEventListener('click', function (e) {
 
     var row = $(e.target).parents('tr');
     var form = $(e.target).parents('form');
-    var url = form.attr('action');
-    var formId = form.attr('id');
-    $('#alert').show(); //axios delete
+    var formId = form.attr('id'); //axios delete
 
-    axios.delete("/eliminar/" + formId).then(function (response) {
+    axios.delete('/eliminar/' + formId).then(function (response) {
       row.fadeOut();
+      $('#alert').fadeIn();
       $('#products_total').html(response.data.total);
-      $('#alert').html(response.data.message);
+      $('#alert-info').html(response.data.message);
+      $('#btn-destroy').click(function () {
+        $('#alert').fadeOut();
+      });
     }).catch(function (error) {
       console.log(error);
     });

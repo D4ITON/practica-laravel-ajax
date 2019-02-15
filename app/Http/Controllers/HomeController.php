@@ -47,7 +47,7 @@ class HomeController extends Controller
         $products_total = Product::all()->count();
         return response()->json([
             'total' => $products_total,
-            'message' => "el producto $product->name fue eliminado"
+            'message' => "el producto $product->id con nombre $product->name fue eliminado"
         ]);
     }
 }

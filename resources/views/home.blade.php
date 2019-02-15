@@ -12,7 +12,14 @@
                         <span id="products_total">{{ $products_total }}</span> registros |
                         página {{ $productos->currentPage() }} de {{ $productos->lastPage() }}
                     </p>
-                    <div id="alert" class="alert alert-success"></div>
+
+                    <div id="alert" class="alert alert-warning alert-dismissible" role="alert">
+                        <p id="alert-info"></p>
+                        <button id="btn-destroy" class="close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    
                     {{-- table section --}}
                     <table id="table-select" class="table table-hover">
                             <thead>
