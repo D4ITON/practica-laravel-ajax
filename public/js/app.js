@@ -48945,9 +48945,9 @@ var app = new Vue({
 });
 $(document).ready(function () {
   $('#alert').hide();
-});
+}); //delegacion de eventos
+
 document.getElementById('table-select').addEventListener('click', function (e) {
-  //console.log(e.target.nodeName);
   if (e.target.nodeName === 'A') {
     if (!confirm('¿Esta seguro de eliminar?')) {
       return false;
@@ -48957,14 +48957,12 @@ document.getElementById('table-select').addEventListener('click', function (e) {
     var form = $(e.target).parents('form');
     var url = form.attr('action');
     var formId = form.attr('id');
-    console.log(formId);
-    $('#alert').show();
+    $('#alert').show(); //axios delete
+
     axios.delete("/eliminar/" + formId).then(function (response) {
-      console.log(response.data.message);
       row.fadeOut();
       $('#products_total').html(response.data.total);
       $('#alert').html(response.data.message);
-      console.log('eliminado');
     }).catch(function (error) {
       console.log(error);
     });
