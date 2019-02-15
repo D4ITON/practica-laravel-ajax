@@ -32,10 +32,7 @@ const app = new Vue({
     el: '#app'
 });
 
-$('document').ready(function(){
-    $('#alert').hide();
 
-});
 document.getElementById('table-select').addEventListener('click', (e)=>{
     //console.log(e.target.nodeName);
     if(e.target.nodeName === 'A'){
@@ -43,17 +40,22 @@ document.getElementById('table-select').addEventListener('click', (e)=>{
         if (!confirm('¿Esta seguro de eliminar?')) {
             return false;
         }
-        var row = this.clo;
-        var form = $(this).parents('form');
+        var row = $(e.target).parents('tr');
+        var form = $(e.target).parents('form');
         var url = form.attr('action');
-        console.log(row);
+        var formId = form.attr('id');
+        console.log(formId);
 
-        /* $('#alert').show();
         
-        $.post(url, form.serialize(), function(){
+        axios.delete(`/eliminar/`+formId).then((response) => {
+            /* $('#alert').addClass(response.data.display); */
+            console.log(response.data.message);
             row.fadeOut();
-            
-        })
- */
+            /* $('#products_total').html(response.data.total); */
+            $('#products_total').html(response.data.total);
+            $('#alert').html(response.data.message);
+            console.log('eliminado');
+        });
+        
     }
 })

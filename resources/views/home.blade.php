@@ -9,10 +9,16 @@
 
                 <div class="card-body">
                     <p>
-                        {{ $productos->count() }} registros |
+                        <span id="products_total">{{ $products_total }}</span> registros |
                         página {{ $productos->currentPage() }} de {{ $productos->lastPage() }}
                     </p>
-                    <div id="alert" class="alert alert-primary"></div>
+                    <div id="alert" class="alert alert-warning alert-dismissible fade show" role="alert">
+                        
+                        <span id="alert-text"></span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
                     {{-- table section --}}
                     <table id="table-select" class="table table-hover">
                             <thead>
@@ -31,7 +37,7 @@
                                         {{-- <form method="DELETE" action="{{ route('destroyProduct',$producto->id) }}">
                                             <a href="#">eliminar</a>
                                         </form> --}}
-                                        {!! Form::open(['route' => ['destroyProduct', $producto->id], 'method'=>'DELETE']) !!}
+                                        {!! Form::open(['route' => ['deleteProduct', $producto->id], 'method'=>'DELETE', 'id'=>$producto->id]) !!}
                                             <a href="#">eliminar</a>
                                         {!! Form::close() !!}
                                     </td>

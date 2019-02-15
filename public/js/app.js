@@ -48915,8 +48915,6 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var _this = this;
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -48945,9 +48943,6 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
-$('document').ready(function () {
-  $('#alert').hide();
-});
 document.getElementById('table-select').addEventListener('click', function (e) {
   //console.log(e.target.nodeName);
   if (e.target.nodeName === 'A') {
@@ -48955,17 +48950,21 @@ document.getElementById('table-select').addEventListener('click', function (e) {
       return false;
     }
 
-    var row = _this.clo;
-    var form = $(_this).parents('form');
+    var row = $(e.target).parents('tr');
+    var form = $(e.target).parents('form');
     var url = form.attr('action');
-    console.log(row);
-    /* $('#alert').show();
-    
-    $.post(url, form.serialize(), function(){
-        row.fadeOut();
-        
-    })
-    */
+    var formId = form.attr('id');
+    console.log(formId);
+    axios.delete("/eliminar/" + formId).then(function (response) {
+      /* $('#alert').addClass(response.data.display); */
+      console.log(response.data.message);
+      row.fadeOut();
+      /* $('#products_total').html(response.data.total); */
+
+      $('#products_total').html(response.data.total);
+      $('#alert').html(response.data.message);
+      console.log('eliminado');
+    });
   }
 });
 

@@ -19,4 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::DELETE('/eliminar/{id}', 'HomeController@destroyProduct')->name('destroyProduct');
+/* Route::DELETE('/eliminar/{id}', 'HomeController@destroyProduct')->name('destroyProduct'); */
+Route::DELETE('/eliminar/{id}', 'HomeController@deleteProduct')->name('deleteProduct');
