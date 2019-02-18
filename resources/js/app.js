@@ -37,7 +37,7 @@ const app = new Vue({
 $('#alert').hide();
 
 //delegacion de eventos
-document.getElementById('table-select').addEventListener('click', (e)=>{
+document.getElementById('table-products').addEventListener('click', (e)=>{
     if(e.target.nodeName === 'A'){
 
         
@@ -66,4 +66,7 @@ document.getElementById('table-select').addEventListener('click', (e)=>{
     }
 });
 
-
+// inicializacion de datatables
+$(document).ready( function () {
+    $('#table-products').DataTable();
+} );

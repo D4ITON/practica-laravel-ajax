@@ -21,7 +21,7 @@
                     </div>
                     
                     {{-- table section --}}
-                    <table id="table-select" class="table table-hover">
+                    <table id="table-products" class="table table-hover display">
                             <thead>
                               <tr>
                                 <th scope="col">#</th>
@@ -54,3 +54,13 @@
     </div>
 </div>
 @endsection
+@push('styles')
+
+
+@endpush
+
+
+@push('scripts')
+
+
+@endpush
