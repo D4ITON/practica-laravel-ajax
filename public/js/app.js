@@ -6232,35 +6232,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/datatables.net-dt/js/dataTables.dataTables.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/datatables.net-dt/js/dataTables.dataTables.js ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! DataTables styling integration
- * ©2018 SpryMedia Ltd - datatables.net/license
- */
-
-(function( factory ){
-	if ( true ) {
-		// AMD
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"), __webpack_require__(/*! datatables.net */ "./node_modules/datatables.net/js/jquery.dataTables.js")], __WEBPACK_AMD_DEFINE_RESULT__ = (function ( $ ) {
-			return factory( $, window, document );
-		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	}
-	else {}
-}(function( $, window, document, undefined ) {
-
-return $.fn.dataTable;
-
-}));
-
-
-/***/ }),
-
 /***/ "./node_modules/datatables.net/js/jquery.dataTables.js":
 /*!*************************************************************!*\
   !*** ./node_modules/datatables.net/js/jquery.dataTables.js ***!
@@ -64311,8 +64282,6 @@ try {
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
   __webpack_require__(/*! datatables.net */ "./node_modules/datatables.net/js/jquery.dataTables.js")();
-
-  __webpack_require__(/*! datatables.net-dt */ "./node_modules/datatables.net-dt/js/dataTables.dataTables.js");
 
   __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 } catch (e) {}
