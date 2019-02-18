@@ -64199,9 +64199,15 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var datatables_net__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! datatables.net */ "./node_modules/datatables.net/js/jquery.dataTables.js");
+/* harmony import */ var datatables_net__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(datatables_net__WEBPACK_IMPORTED_MODULE_1__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -64210,6 +64216,8 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -64231,7 +64239,7 @@ var app = new Vue({
   el: '#app'
 }); // variable para ver si fue presionado el boton de cerrar
 
-$('#alert').hide(); //delegacion de eventos
+jquery__WEBPACK_IMPORTED_MODULE_0___default()('#alert').hide(); //delegacion de eventos
 
 document.getElementById('table-products').addEventListener('click', function (e) {
   if (e.target.nodeName === 'A') {
@@ -64239,26 +64247,22 @@ document.getElementById('table-products').addEventListener('click', function (e)
       return false;
     }
 
-    var row = $(e.target).parents('tr');
-    var form = $(e.target).parents('form');
+    var row = jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target).parents('tr');
+    var form = jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.target).parents('form');
     var formId = form.attr('id'); //axios delete
 
     axios.delete('/eliminar/' + formId).then(function (response) {
       row.fadeOut();
-      $('#alert').fadeIn();
-      $('#products_total').html(response.data.total);
-      $('#alert-info').html(response.data.message);
-      $('#btn-destroy').click(function () {
-        $('#alert').fadeOut();
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#alert').fadeIn();
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#products_total').html(response.data.total);
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#alert-info').html(response.data.message);
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#btn-destroy').click(function () {
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('#alert').fadeOut();
       });
     }).catch(function (error) {
       console.log(error);
     });
   }
-}); // inicializacion de datatables
-
-$(document).ready(function () {
-  $('#table-products').DataTable();
 });
 
 /***/ }),
@@ -64280,8 +64284,6 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 try {
   window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js").default;
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-
-  __webpack_require__(/*! datatables.net */ "./node_modules/datatables.net/js/jquery.dataTables.js")();
 
   __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 } catch (e) {}

@@ -9,8 +9,7 @@
 
                 <div class="card-body">
                     <p>
-                        <span id="products_total">{{ $products_total }}</span> registros |
-                        página {{ $productos->currentPage() }} de {{ $productos->lastPage() }}
+                        <span id="products_total">{{ $products_total }}</span>
                     </p>
 
                     <div id="alert" class="alert alert-warning alert-dismissible" role="alert">
@@ -46,7 +45,7 @@
                                 @endforeach
                             </tbody>
                           </table>
-                          {!! $productos->render() !!}
+                         
                     {{-- fin table section --}}
                 </div>
             </div>
@@ -61,6 +60,5 @@
 
 
 @push('scripts')
-
 
 @endpush

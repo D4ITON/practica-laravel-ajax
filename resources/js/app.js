@@ -8,6 +8,8 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+import $ from 'jquery';
+import 'datatables.net';
 
 /**
  * The following block of code may be used to automatically register your
@@ -66,7 +68,3 @@ document.getElementById('table-products').addEventListener('click', (e)=>{
     }
 });
 
-// inicializacion de datatables
-$(document).ready( function () {
-    $('#table-products').DataTable();
-} );

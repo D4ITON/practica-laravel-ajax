@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $productos = Product::paginate(10);
+        $productos = Product::all();
         $products_total = Product::all()->count();
         return view('home',compact('productos','products_total'));
     }
