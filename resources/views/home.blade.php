@@ -54,11 +54,18 @@
                 {"data": 'id'},
                 {"data": 'name'},
                 { render : function(data, type, row, meta) {
-                        return '<button>edit'+data+'</button>'
+                    
+                    return '<form action="{{ route("deleteProduct",'+data+ ') }}" method="DELETE" id="'+ data +'"><a href="#">eliminar</a></form>'
                     }
                 }
             ],
           
+            "columnDefs": [ {
+                "targets": 2,
+                "data": "id",
+                
+            } ]
+
         });
     } );
 </script>
