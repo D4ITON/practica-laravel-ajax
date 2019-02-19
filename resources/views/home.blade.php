@@ -28,19 +28,7 @@
                                 <th scope="col">option</th>
                               </tr>
                             </thead>
-                            <tbody>
-                                @foreach ($productos as $producto)
-                                <tr>
-                                    <td scope="row">{{ $producto->id }}</td>
-                                    <td><label for="{{ $producto->id }}">{{ $producto->name }}</label></td>
-                                    <td>
-                                        {!! Form::open(['route' => ['deleteProduct', $producto->id], 'method'=>'DELETE', 'id'=>$producto->id]) !!}
-                                            <a href="#">eliminar</a>
-                                        {!! Form::close() !!}
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
+                            
                           </table>
                         
                     {{-- fin table section --}}
@@ -63,11 +51,35 @@
             "serverSide": true,
             "ajax": "{{ url('api/products') }}",
             "columns": [
-                {data: 'id'},
-                {data: 'name'},
-                {"render" : function() { return '<input type="checkbox">';   }}
+                {"data": 'id'},
+                {"data": 'name'},
+                { render : function(data, type, row, meta) {
+                        return '<button>edit'+data+'</button>'
+                    }
+                }
             ],
+          
         });
     } );
 </script>
 @endpush
+
+{{--  /* { render : function() {
+    return '<button>edit</button>'
+}
+}, 
+{ render : function() {
+    return '<button>delete</button>'
+}
+}
+
+
+{"render": 
+function (data, type, row, meta) {
+        
+        return 
+        '{!! Form::open(["route" => ["deleteProduct",'+ row[0]+'], "method"=>"DELETE", "id"=>'+row[0]+']) !!}'+
+            ' <a href="#">eliminar</a>'+
+        ' {!! Form::close() !!} ';
+    }
+} */  --}}
