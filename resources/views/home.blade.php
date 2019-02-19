@@ -31,12 +31,9 @@
                             <tbody>
                                 @foreach ($productos as $producto)
                                 <tr>
-                                    <th scope="row">{{ $producto->id }}</th>
+                                    <td scope="row">{{ $producto->id }}</td>
                                     <td><label for="{{ $producto->id }}">{{ $producto->name }}</label></td>
                                     <td>
-                                        {{-- <form method="DELETE" action="{{ route('destroyProduct',$producto->id) }}">
-                                            <a href="#">eliminar</a>
-                                        </form> --}}
                                         {!! Form::open(['route' => ['deleteProduct', $producto->id], 'method'=>'DELETE', 'id'=>$producto->id]) !!}
                                             <a href="#">eliminar</a>
                                         {!! Form::close() !!}
@@ -45,7 +42,7 @@
                                 @endforeach
                             </tbody>
                           </table>
-                         
+                        
                     {{-- fin table section --}}
                 </div>
             </div>
@@ -60,5 +57,17 @@
 
 
 @push('scripts')
-
+<script>
+    $(document).ready( function () {
+        $('#table-products').DataTable({
+            "serverSide": true,
+            "ajax": "{{ url('api/products') }}",
+            "columns": [
+                {data: 'id'},
+                {data: 'name'},
+                {"render" : function() { return '<input type="checkbox">';   }}
+            ],
+        });
+    } );
+</script>
 @endpush
