@@ -26,3 +26,7 @@ Route::get('api/products', function(){
     
     return datatables()->eloquent(App\Product::query())->toJson();
 });
+
+Route::get('admin', function (){
+    return view('admin.layout');
+});

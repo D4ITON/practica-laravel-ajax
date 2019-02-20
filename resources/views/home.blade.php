@@ -3,9 +3,20 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+
+            <div class="row">
+                <div class="col-sm-10">
+                    <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Productos</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                    </div>
+                </div>
+        <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Productos</div>
 
                 <div class="card-body">
                     <p>
@@ -67,6 +78,8 @@
             } ]
 
         });
+
+        $('#table-products').removeClass( 'display' ).addClass('table table-striped table-bordered');
     } );
 </script>
 @endpush
